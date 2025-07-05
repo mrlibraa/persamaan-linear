@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kalkulator Gauss & Gauss-Jordan</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1><i class="fas fa-calculator"></i> Kalkulator Gauss & Gauss-Jordan</h1>
+            <p>Selesaikan sistem persamaan linear dengan metode Eliminasi Gauss dan Gauss-Jordan</p>
+        </header>
+
+        <div class="input-section">
+            <div class="matrix-size-selector">
+                <label for="size">Ukuran Matriks (n x n):</label>
+                <select id="size">
+                    <option value="2">2x2</option>
+                    <option value="3" selected>3x3</option>
+                    <option value="4">4x4</option>
+                    <option value="5">5x5</option>
+                </select>
+                <button id="generate-matrix" class="btn"><i class="fas fa-sync-alt"></i> Buat Matriks</button>
+            </div>
+
+            <div class="matrix-input">
+                <div id="matrix-container"></div>
+                <div class="buttons">
+                    <button id="calculate-gauss" class="btn primary"><i class="fas fa-project-diagram"></i> Eliminasi Gauss</button>
+                    <button id="calculate-gauss-jordan" class="btn primary"><i class="fas fa-project-diagram"></i> Eliminasi Gauss-Jordan</button>
+                    <button id="reset" class="btn secondary"><i class="fas fa-trash-alt"></i> Reset</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="result-section">
+            <div class="tabs">
+                <button class="tab active" data-tab="solution">Hasil</button>
+                <button class="tab" data-tab="steps">Langkah-langkah</button>
+                <button class="tab" data-tab="explanation">Penjelasan</button>
+            </div>
+
+            <div class="tab-content active" id="solution-content">
+                <div id="solution-result"></div>
+            </div>
+
+            <div class="tab-content" id="steps-content">
+                <div id="steps-result"></div>
+            </div>
+
+            <div class="tab-content" id="explanation-content">
+                <div class="explanation-text">
+                    <h3><i class="fas fa-info-circle"></i> Metode Eliminasi Gauss</h3>
+                    <p>Metode Eliminasi Gauss adalah algoritma untuk menyelesaikan sistem persamaan linear. Prosesnya terdiri dari:</p>
+                    <ol>
+                        <li><strong>Eliminasi Maju:</strong> Mengubah matriks menjadi bentuk eselon baris (row echelon form)</li>
+                        <li><strong>Substitusi Mundur:</strong> Menyelesaikan variabel dari persamaan paling bawah ke atas</li>
+                    </ol>
+
+                    <h3><i class="fas fa-info-circle"></i> Metode Gauss-Jordan</h3>
+                    <p>Metode Gauss-Jordan adalah pengembangan dari metode Gauss dengan mengubah matriks menjadi bentuk eselon baris tereduksi (reduced row echelon form).</p>
+                    <p>Perbedaan utama:</p>
+                    <ul>
+                        <li>Gauss: Matriks segitiga atas</li>
+                        <li>Gauss-Jordan: Matriks identitas di bagian kiri</li>
+                    </ul>
+
+                    <h3><i class="fas fa-calculator"></i> Rumus Dasar</h3>
+                    <p>Operasi baris elementer yang digunakan:</p>
+                    <ul>
+                        <li><strong>Pertukaran Baris:</strong> R<sub>i</sub> ↔ R<sub>j</sub></li>
+                        <li><strong>Perkalian Baris:</strong> R<sub>i</sub> → k × R<sub>i</sub></li>
+                        <li><strong>Penjumlahan Baris:</strong> R<sub>i</sub> → R<sub>i</sub> + k × R<sub>j</sub></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>© 2025 kelompok 3 Kalkulator Numerik - Metode Gauss & Gauss-Jordan</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
